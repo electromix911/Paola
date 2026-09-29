@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Paola ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            overflow: hidden;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            color: #5a2630;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .texto {
+            font-size: 18px;
+            line-height: 1.5;
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #e91e63;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(233,30,99,0.4);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        .sorpresa {
+            display: none;
+            margin-top: 25px;
+            animation: aparecer 1s ease;
+        }
+
+        .foto {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transform: perspective(700px) rotateY(-8deg);
+            transition: 0.5s;
+        }
+
+        .foto:hover {
+            transform: perspective(700px) rotateY(8deg) scale(1.05);
+        }
+
+        /* Carta 3D */
+        .carta {
+            margin: 25px auto 0;
+            width: 280px;
+            min-height: 150px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow:
+                0 20px 35px rgba(0,0,0,0.25),
+                0 8px 0 #e5b8c0;
+            transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
+            transition: 0.5s;
+        }
+
+        .carta:hover {
+            transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.04);
+        }
+
+        .carta h2 {
+            color: #e91e63;
+            margin-top: 0;
+        }
+
+        .carta p {
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .corazon {
+            position: fixed;
+            font-size: 25px;
+            animation: flotar 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flotar {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(-120vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Para Paola ❤️</h1>
+
+        <div class="texto">
+            Mis intenciones contigo son las más sanas y serias.
+            No quiero jugar con tus sentimientos; quiero conocerte,
+            respetarte y demostrarte con hechos lo que siento por ti.
+        </div>
+
+        <button onclick="mostrarSorpresa()">
+            💌 Tengo algo para ti
+        </button>
+
+        <div class="sorpresa" id="sorpresa">
+
+            <img src="paola.jpg" class="foto" alt="Paola">
+
+            <div class="carta">
+                <h2>Paola ❤️</h2>
+
+                <p>
+                    Tal vez no sé qué nos depare el futuro,
+                    pero sí sé algo...
+                </p>
+
+                <p>
+                    <strong>Te quiero ❤️</strong>
+                </p>
+
+                <p>
+                    Y me gustaría tener la oportunidad
+                    de seguir conociéndote y demostrarte
+                    que mis intenciones contigo son sinceras.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function mostrarSorpresa() {
+            document.getElementById("sorpresa").style.display = "block";
+        }
+
+        // Corazones flotando
+        setInterval(() => {
+            const corazon = document.createElement("div");
+            corazon.className = "corazon";
+            corazon.innerHTML = "❤️";
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 6000);
+
+        }, 700);
+    </script>
+
+</body>
+</html>
